@@ -10,7 +10,7 @@ Welcome to my GitHub! I’m a passionate developer and lifelong learner, leading
 
 - **Profession:** Java Spring Developer
 - **Tech Stack:** Java, Spring Boot, AWS, Angular
-- **Leadership:** Server leader & enthusiastic public speaker
+- **Leadership:** Servant leader & enthusiastic public speaker
 - **Achievements:** 15 professional certificates (AWS, Azure, PMI & more)
 - **Favorite Project:** [mytracker](https://github.com/sathishjayapal/mytracker) – My go-to for productivity and innovation
 - **Fun Fact:** Full-time dad who loves traveling with my family to national parks 🌲🏞️
