@@ -1,6 +1,6 @@
 # 👋 Hi, I'm Sathish Jayapal!
 
-### Java Spring Developer | Server Leader | Public Speaker
+### Java Spring Developer | Servant Leader | Public Speaker
 
 Welcome to my GitHub! I’m a passionate developer and lifelong learner, leading with energy both in tech and life.
 
