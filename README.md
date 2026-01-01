@@ -1,56 +1,42 @@
-# 👋 Hi, I'm Sathish Jayapal!
+# 🛠️ The Laboratory of Sathish Jayapal
 
-### Java Spring Developer | Early retirement procrasinator
+### Cloud Architect | Technical Product Manager | Marathoner
 
-Welcome to my GitHub! I’m a passionate developer and lifelong learner, leading with energy both in tech and life.
-
----
-
-## 🚀 About Me
-
-- **Profession:** Java Spring Developer
-- **Tech Stack:** Java, Spring Boot, AWS, Angular
-- **Leadership:** Servant leader & enthusiastic public speaker
-- **Achievements:** 15 professional certificates (AWS, Azure, PMI & more)
-- **Favorite Project:** [mytracker](https://github.com/sathishjayapal/mytracker) – My go-to for productivity and innovation
-- **Fun Fact:** Full-time dad who loves traveling with my family to national parks 🌲🏞️
+I use this space to architect personal solutions for real-world challenges—specifically at the intersection of **Enterprise Cloud Architecture** and **Endurance Sports**. Based in Sun Prairie, WI.
 
 ---
 
-## 🏆 Featured Projects
-
-- [mytracker](https://github.com/sathishjayapal/mytracker): Track, organize, and optimize with my favorite productivity tool.
-- [verbose-barnacle](https://github.com/sathishjayapal/verbose-barnacle): Exploring new ideas in backend development.
-- [eventstracker](https://github.com/sathishjayapal/eventstracker): Capture, analyze, and visualize events seamlessly.
-- [gotoaws-sathish](https://github.com/sathishjayapal/gotoaws-sathish): Cloud experiments and AWS best practices.
+## 🏗️ What I’m Building Now
+* **[Runs App](https://github.com/sathishjayapal/runs-app):** A personal data hub integrating Garmin/Strava data. Focus: Outbox patterns, GraphQL integration, and distributed locking with **Shedlock**.
+* **Agentic AI Frameworks:** Exploring reconciliation scenarios and self-healing code using Agentic AI (Windsurf/GitHub API) to automate repo management.
+* **EKS Resource Mapping:** A transition laboratory moving high-speed `eksctl` provisioning into granular, production-grade Terraform HCL.
 
 ---
 
-## 🎓 Certifications
-
-15+ certificates across Cloud, Project Management, and more:  
-AWS | Azure | PMI | …and others
-
----
-
-## 🗣️ Skills & Interests
-
-- **Technical:** Java, Spring Boot, AWS, Angular
-- **Soft Skills:** Public speaking, team leadership
-- **Personal:** Family adventures, national park enthusiast
+## ✍️ Latest from the Tek Blog
+* [From eksctl to Terraform: Essential Resource Mapping](https://sathishjayapal.me/2025/11/29/from-eksctl-to-terraform-essential-resource-mapping/)
+* [Designing Scalable Queues for Personal Projects (RabbitMQ)](https://sathishjayapal.me/2025/10/24/designing-scalable-queues-for-personal-projects/)
+* [Agentic AI: Scenarios with Reconciliation](https://dotsky.medium.com/agentic-ai-coding-scenarios-that-has-reconciliation-tied-to-it-6dd23af7615d)
 
 ---
 
-## 🌐 Connect with Me
-
-- **Website:** [sathishjayapal.me](https://sathishjayapal.me)
-
----
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=sathishjayapal&show_icons=true&hide_title=true" alt="Sathish's GitHub stats" />
-</p>
+## 🛠️ My Tech Stack (The "Builder" Edition)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
 ---
 
-Thanks for visiting! Let’s connect, collaborate, and make awesome things happen 🚀
+## 🏃‍♂️ Beyond the Terminal
+* **Marathoner:** 9 total marathon finisher. 
+* **Philosophy:** Applying the "Resiliency" principles of Cloud Architecture to human recovery and injury prevention.
+* **Local:** Madison/Sun Prairie, WI. Always down for tech talk over South Indian cuisine.
+
+---
+
+## 📊 Stats & Connections
+[![Sathish's GitHub stats](https://github-readme-stats.vercel.app/api?username=sathishjayapal&show_icons=true&theme=radical)](https://github.com/anuraghazra/github-readme-stats)
+
+[🌐 My Website](https://sathishjayapal.me) | [📝 Medium](https://dotsky.medium.com)
