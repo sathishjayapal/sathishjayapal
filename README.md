@@ -70,6 +70,4 @@ AWS • Azure
 ---
 
 ## 📊 Stats & Connections
-[![Sathish's GitHub stats](https://github-readme-stats.vercel.app/api?username=sathishjayapal&show_icons=true&theme=radical)](https://github.com/anuraghazra/github-readme-stats)
-
 [🌐 My Website](https://sathishjayapal.me) | [📝 Medium](https://dotsky.medium.com)
