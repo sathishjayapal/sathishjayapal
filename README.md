@@ -1,73 +1,176 @@
-# 🛠️ The Laboratory of Sathish Jayapal  
-Cloud Architect | Technical Product Manager | Marathoner | Event‑Driven Systems & Kubernetes
+# 🛠️ Sathish Jayapal – Laboratory of Systems & Resilience
 
-I live at the intersection of Enterprise Cloud Architecture, Distributed Systems, and Endurance Sports.  
-This space is where I experiment, learn in public, and share what works (and what really doesn’t).  
-If you’re here for code, start with the Runs App and Infra/Terraform labs in the sections below.
+**Cloud Architect | Event-Driven Systems Builder | Marathon Runner | Learning in Public**
 
----
-
-## 🏗️ What I’m Building Now
-
-- **Runs App (Personal Running Platform)**  
-  A multi‑service running platform that ingests data from Garmin/Strava and gives deeper insights for marathon training.  
-  Stack: **Java, Spring Boot, RabbitMQ/Kafka, Postgres, Docker, Kubernetes (WIP)**.  
-  Focus areas: event‑driven ingestion, training‑cycle analytics, and opinionated APIs for runners and coaches.
-
-- **Agentic AI Frameworks for Engineers**  
-  Exploring AI agents to support engineers and platform teams:  
-  - Auto‑triaging stale branches and PRs.  
-  - Reconciling Terraform state with live Kubernetes/EKS/AKS resources.  
-  - Drafting ADRs and changelogs from commit history.  
-  Early experiments live in repos under `sathishjayapal` with “ai” or “agent” in the name.
-
-- **EKS Resource Mapping & Infra Labs**  
-  Working on taking an existing EKS cluster and reverse‑engineering it into maintainable Terraform modules.  
-  This is part of a set of **infra labs** for engineers moving from “eksctl click‑next cluster” to “versioned, reviewed, Terraformed infra”.
+I design distributed systems for cloud platforms and explore how **resilience principles** from endurance sports apply to building reliable software. This is my laboratory — where architecture thinking meets code, and theory meets the constraints of running real applications.
 
 ---
 
-## 📝 Architecture Deep Dives (Tek Blog)
+## 🎯 Where to Start
 
-I write longer, opinionated breakdowns of systems and patterns at **[sathishjayapal.me](https://sathishjayapal.me)**.
+**If you're interested in:**
 
-- **From eksctl to Terraform: Making Sense of EKS Resources**  
-  How to reverse‑engineer an EKS cluster created with eksctl into clean Terraform modules you can actually maintain.  
-  👉 Read: https://sathishjayapal.me/eksctl-to-terraform-eks-mapping/
+### 📐 **Event-Driven Systems & Distributed Transactions**
+→ Start with **[EventsTracker](https://github.com/sathishjayapal/eventstracker)**  
+A production-grade multi-service platform exploring RabbitMQ choreography, ShedLock coordination, and Kubernetes operations. Built to answer: *How do you handle distributed transactions and race conditions at scale?*
 
-- **Designing Scalable Queues for Real‑World Workloads** 
-  Patterns for moving from hobby queues to resilient RabbitMQ in production‑like setups: dead‑lettering, back‑pressure, and observability.  
-  👉 Read: https://sathishjayapal.me/2025/10/24/designing-scalable-queues-for-personal-projects/
+### 🏃 **Analytics for Distributed Systems (via Running Data)**
+→ Start with **[Runs App](https://github.com/sathishjayapal/runs-ai-analyzer)** *(WIP)*  
+Using semantic caching (PGVector + Claude) to analyze running data as a testbed for RAG patterns and real-time anomaly detection. Why? Because marathons taught me that **resilience is a system property**, not a component.
 
-- **Running, Recovery, and Systems Thinking** *(if you have or plan a post tying running to architecture)*  
-  Connecting long‑run training cycles, feedback loops, and how that maps to building reliable distributed systems.  
-  👉 Read: https://sathishjayapal.me/2025/12/31/from-marathon-dreams-to-injury-recovery-a-runners-journey/
+### 🏗️ **Infrastructure as Code & Kubernetes Ops**
+→ Start with **[EKS Terraform Labs](https://github.com/sathishjayapal/eks-infra-labs)** *(WIP)*  
+Reverse-engineering cloud-click clusters into versioned, reviewed, reproducible infrastructure. Learning to go from "eksctl create cluster" to "infrastructure as a git-reviewed system."
 
-I cross‑post selected articles to Medium with canonical links back to the blog so everything resolves to the source of truth.
+### 🤖 **Agentic AI for Engineering Workflows**
+→ Explore **[AI Agent Experiments](https://github.com/sathishjayapal?q=ai-agent&type=source)**  
+Auto-triaging stale branches, reconciling Terraform state with live resources, drafting ADRs from commit history. Early-stage exploration of how AI agents can reduce toil.
 
 ---
 
-## 💻 Tech Stack & Comfort Zone Builds
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
-![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
+## 📚 Architecture Deep Dives (Read First, Then Code)
+
+I write longer pieces at **[sathishjayapal.me](https://sathishjayapal.me)** (canonical source) and cross-post to [Medium @dotsky](https://dotsky.medium.com).
+
+### Featured Posts (Start Here)
+- **[From eksctl to Terraform: Making Sense of EKS Resources](https://sathishjayapal.me/eksctl-to-terraform-eks-mapping/)**  
+  How to take an EKS cluster created with `eksctl` and reverse-engineer it into maintainable Terraform modules. The gap between "click-next cloud" and "infrastructure you can version and review."
+
+- **[Designing Scalable Queues for Real-World Workloads](https://sathishjayapal.me/2025/10/24/designing-scalable-queues-for-personal-projects/)**  
+  Patterns for moving RabbitMQ from hobby projects to resilient production-like setups: dead-lettering, backpressure, observability. This thinking is baked into EventsTracker.
+
+- **[Tackling Distributed Transactions in Microservices](https://dotsky.medium.com/tackling-distributed-transactions)** *(cross-posted)*  
+  Using ShedLock for distributed task scheduling and avoiding race conditions in Kubernetes. Real constraints. Real solutions.
+
+- **[From Marathon Dreams to Injury Recovery: A Runner's Journey](https://sathishjayapal.me/2025/12/31/from-marathon-dreams-to-injury-recovery-a-runners-journey/)**  
+  How systems thinking from distributed systems applies to running recovery, feedback loops, and building resilience into training design.
+
+- **[Semantic Caching for Intelligent Running Analysis](https://sathishjayapal.me/2026/02/08/semantic-caching-for-intelligent-running-analysis/)**  
+  Using PGVector and Claude embeddings to avoid re-analyzing past running data. RAG patterns at personal scale.
+
+**→ [See all posts](https://sathishjayapal.me)**
+
+---
+
+## 🏗️ What I'm Building Now
+
+### EventsTracker — **MVP + Active**
+A multi-service event ingestion platform built as a learning vehicle for Kubernetes, Spring Cloud, and distributed systems.
+- **Why:** To understand how production systems handle distributed transactions, race conditions, and resilience at small scale before enterprise scale.
+- **Tech:** Java 21 • Spring Boot 4.0 • RabbitMQ • PostgreSQL/Flyway • Kubernetes • Maven
+- **Focus:** Event-driven choreography, ShedLock coordination, zero-trust microservice security.
+- **Status:** Core event ingestion stable; Kubernetes deployment in progress.
+- **Next:** Zero-downtime deployments, full observability (metrics/tracing).
+
+→ **[Go to EventsTracker](https://github.com/sathishjayapal/eventstracker)** | **[Read the blog post](https://sathishjayapal.me/tackling-distributed-transactions)**
+
+---
+
+### Runs App — **MVP + Active Learning**
+A multi-service platform for ingesting and analyzing running data from Garmin/Strava.
+- **Why:** Marathons taught me that resilience is a system property. I'm applying that insight to real-time athletic performance analytics.
+- **Tech:** Java • Spring Boot • PGVector • PostgreSQL • Claude API • RabbitMQ/Kafka • Kubernetes (WIP)
+- **Focus:** RAG-based semantic caching, real-time injury pattern detection, agentic AI coaching recommendations.
+- **Status:** Garmin ingestion stable; semantic analysis in progress.
+- **Next:** Kubernetes deployment, multi-region eventual consistency patterns.
+
+→ **[Go to Runs App](https://github.com/sathishjayapal/runs-ai-analyzer)** | **[Read the blog post](https://sathishjayapal.me/semantic-caching-running-analysis)**
+
+---
+
+### EKS Terraform Labs — **Learning Phase**
+Reverse-engineering EKS clusters created with `eksctl` into clean, versioned Terraform modules.
+- **Why:** Too many teams run "cloud click-next" deployments. This is how you move from ad-hoc to reviewable infrastructure.
+- **Tech:** Terraform • AWS EKS • Kubernetes • Infrastructure as Code
+- **Status:** Early exploration; learning the mapping from eksctl-generated resources to idiomatic Terraform.
+
+→ **[Go to EKS Labs](https://github.com/sathishjayapal/eks-infra-labs)** | **[Read the blog post](https://sathishjayapal.me/eksctl-to-terraform-eks-mapping/)**
+
+---
+
+### Agentic AI Experiments — **Early Stage**
+Exploring AI agents to reduce engineering toil:
+- Auto-triaging stale branches and PRs
+- Reconciling Terraform state with live Kubernetes/EKS/AKS resources
+- Drafting ADRs and changelogs from commit history
+
+→ **[Browse AI experiments](https://github.com/sathishjayapal?q=ai-agent&type=source)**
+
+---
+
+## 💻 Technical Comfort Zone
 
 **Languages & Frameworks**  
-Java • Spring Boot • Spring Cloud • REST APIs • Event‑Driven Architectures  
+Java • Spring Boot • Spring Cloud • REST APIs • GraphQL • Event-Driven Architectures
 
-**Cloud & Infra**  
-AWS • Azure
+**Cloud & Infrastructure**  
+AWS (EKS, RDS, S3) • Azure • Kubernetes • Terraform • Infrastructure as Code
+
+**Data & Patterns**  
+PostgreSQL • RabbitMQ/Kafka • Distributed Transactions • PGVector/Semantic Search • Real-Time Analytics
+
+**Architecture Styles**  
+Microservices • Event-Driven • Domain-Driven Design • CQRS • Zero-Trust Security
+
+![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/SpringBoot-6DB33F?style=flat-square&logo=spring-boot&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat-square&logo=terraform&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white)
+![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=flat-square&logo=rabbitmq&logoColor=white)
 
 ---
 
-## 🏃‍♂️ Beyond the Terminal
-* **Marathoner:** 9 total marathon finisher.
-* **Philosophy:** Applying the "Resiliency" principles of Cloud Architecture to human recovery and injury prevention.
-* **Local:** Madison/Sun Prairie, WI. Always down for tech talk over South Indian cuisine.
+## 🏃‍♂️ Beyond Code
+
+**Marathoner:** 9 marathon finishes. Every long run is a lesson in system design — feedback loops, resilience, constraint management, recovery.
+
+**Thesis:** The principles that make distributed systems resilient (redundancy, graceful degradation, observability, feedback loops) are the same principles that make training cycles effective. I explore this at the intersection of both domains.
+
+**Location:** Madison/Sun Prairie, Wisconsin. Always happy to discuss architecture over South Indian coffee.
 
 ---
 
-## 📊 Stats & Connections
-[🌐 My Website](https://sathishjayapal.me) | [📝 Medium](https://dotsky.medium.com)
+## 🌐 Stay Connected
+
+📝 **Blog** — [sathishjayapal.me](https://sathishjayapal.me) (canonical source of all posts)  
+🔗 **Medium** — [@dotsky](https://dotsky.medium.com) (cross-posted, always with canonical link back)  
+
+**Interested in collaborating, discussing architecture, or connecting on cloud modernization?**  
+→ Open an issue on any repo or reach out at **contact@sathishjayapal.me**
+
+---
+
+## 📊 Recent Activity
+
+- **Deployed:** EventsTracker event ingestion MVP on Kubernetes (WIP zero-downtime deployments)
+- **Learning:** CKAD certification + Kubernetes-native application design
+- **Writing:** "Semantic Caching for Intelligent Running Analysis" + deep-dive on agentic AI for engineering workflows
+- **Running:** Training cycle 2026, targeting Flying Pig Marathon (May 3, 2026); applying injury-prevention systems thinking
+
+---
+
+## 📝 How to Use This Space
+
+✅ **Learn from the code:** Each project has a detailed README explaining the "why" alongside the "how."  
+✅ **Read the architecture posts first:** Blog posts provide context for why code is structured the way it is.  
+✅ **Follow the learning journey:** From CKAD exploration → EventsTracker → Kubernetes ops patterns.  
+✅ **Engage & discuss:** Open issues for questions, architecture debates, or alternative approaches.  
+✅ **Contribute:** Forks, PRs, and improvements welcome.
+
+---
+
+## 🎓 What This Lab is About
+
+This is **not a portfolio of finished products**. It's a **learning laboratory in public**:
+- Real constraints (Kubernetes, distributed transactions, RAG patterns)
+- Real decisions (documented in Architecture Decision Records)
+- Real friction (MapStruct compilation, reconciling Terraform state)
+- Real outcomes (blog posts, working applications, operational insights)
+
+The goal is to **show how I think**, not just what I've built.
+
+---
+
+**Built with ☕ and 🏃. Always learning. Always building. Always honest.**
