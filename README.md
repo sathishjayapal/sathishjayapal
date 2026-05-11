@@ -1,6 +1,3 @@
-Updated readme · MD
-Copy
-
 # 🛠️ Sathish Jayapal – Laboratory of Systems & Resilience
  
 **Cloud Architect | Event-Driven Systems Builder | Marathon Runner | Learning in Public**
