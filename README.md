@@ -13,12 +13,12 @@ I design distributed systems for cloud platforms and explore how **resilience pr
 ### 📐 **Event-Driven Systems & Distributed Transactions**
  
 → Start with **[EventsTracker](https://github.com/sathishjayapal/eventstracker)**  
-A production-grade multi-service platform exploring RabbitMQ choreography, ShedLock coordination, and Kubernetes operations. **Now in local & prod ready state** with Spring Boot 3.5.7, Java 21, and spring-cloud-config integration. Built to answer: *How do you handle distributed transactions and race conditions at scale?*
+A production-grade multi-service platform exploring RabbitMQ choreography, ShedLock coordination, and Kubernetes operations. Running in local & prod-ready state with Spring Boot 3.5.7, Java 21, and Spring Cloud Config integration. Recently added: **Run Journal Entry management** with CRUD operations and embedding service. Built to answer: *How do you handle distributed transactions and race conditions at scale?*
  
 ### 🏃 **Analytics for Distributed Systems (via Running Data)**
  
 → Start with **[Runs AI Analyzer](https://github.com/sathishjayapal/runs-ai-analyzer)** *(Active Development)*  
-Using semantic caching (PgVector + Claude API + Ollama embeddings) to analyze running data as a testbed for RAG patterns and real-time anomaly detection. Accepts Garmin payloads, publishes RabbitMQ events into EventTracker topology. Recent work: EventTracker integration, ECS deployment configs, multi-service orchestration. Why? Because marathons taught me that **resilience is a system property**, not a component.
+Using semantic caching (PgVector + Claude API + Ollama embeddings) to analyze running data as a testbed for RAG patterns and real-time anomaly detection. Accepts Garmin payloads, publishes RabbitMQ events into EventTracker topology. Recent work: **async analysis job tracking** (`AnalysisJob` entity with status polling), AI fallback between Anthropic and Ollama, Flyway migrations, Docker CI. Why? Because marathons taught me that **resilience is a system property**, not a component.
  
 ### 🏗️ **Infrastructure as Code & Kubernetes Ops**
  
@@ -48,13 +48,14 @@ Using ShedLock for distributed task scheduling and avoiding race conditions in K
 How systems thinking from distributed systems applies to running recovery, feedback loops, and building resilience into training design.
 - **[Semantic Caching for Intelligent Running Analysis](https://sathishjayapal.me/2026/02/08/semantic-caching-for-intelligent-running-analysis/)**  
 Using PGVector and Claude embeddings to avoid re-analyzing past running data. RAG patterns at personal scale.
+
 **→ [See all posts](https://sathishjayapal.me)**
  
 ---
  
 ## 🏗️ What I'm Building Now
  
-### EventsTracker — **Production-Ready + Active Ops**
+### EventsTracker — **Production-Ready + Active Development**
  
 A multi-service event ingestion platform with config server integration, production profiles, and Kubernetes-native design.
  
@@ -62,24 +63,60 @@ A multi-service event ingestion platform with config server integration, product
 - **Tech:** Java 21 • Spring Boot 3.5.7 • Spring Cloud Config • RabbitMQ • PostgreSQL/Flyway • Kubernetes • Maven
 - **Focus:** Event-driven choreography, ShedLock coordination, zero-trust microservice security, production env support.
 - **Status:** Core event ingestion stable and production-ready; config-server integration tested; running locally with spring profiles (local/prod).
-- **Recent:** Production profile support, env-based config sourcing, script-driven deployment, CI policy enforcement for README updates.
+- **Recent:** Run Journal Entry management (CRUD + embedding service); responsive table UI improvements; Terraform config for PostgreSQL Flexible Server; Docker deployment workflow enhancements.
 - **Next:** Zero-downtime deployments, comprehensive observability (metrics/tracing/logging), Kubernetes Helm charts.
+
 → **[Go to EventsTracker](https://github.com/sathishjayapal/eventstracker)** | **[Read the blog post](https://sathishjayapal.me/tackling-distributed-transactions)**
  
 ---
  
-### Runs AI Analyzer — **Active Development + EventTracker Integration**
+### Runs AI Analyzer — **Active Development**
  
 A multi-service platform for ingesting Garmin running data, analyzing via Claude API, storing in PgVector, and publishing events.
  
 - **Why:** Marathons taught me that resilience is a system property. I'm applying that insight to real-time athletic performance analytics using RAG patterns.
 - **Tech:** Java 21 • Spring Boot 4.0.1 • Spring AI 2.0.0-M1 (Claude + Ollama) • PGVector • PostgreSQL • RabbitMQ • OpenAPI/Swagger
-- **Focus:** RAG-based semantic caching, EventTracker integration (RabbitMQ topology), force-refresh for fresh analysis, Garmin payload compatibility.
-- **Status:** Core analysis stable; PgVector RAG cache working; EventTracker event publishing integrated; Ollama embeddings live; ECS deployment configs added.
-- **Recent:** Multi-service orchestration with EventsTracker, integration test suite (three-service topology), event payload schemas, ECS task definitions for cloud deployment.
+- **Focus:** RAG-based semantic caching, async analysis job tracking, EventTracker integration (RabbitMQ topology), AI fallback between Anthropic and Ollama, Garmin payload compatibility.
+- **Status:** Core analysis stable; PgVector RAG cache working; EventTracker event publishing integrated; Ollama embeddings live; async `AnalysisJob` tracking with status polling; Docker CI active.
+- **Recent:** `AnalysisJob` entity + batch service for async run analysis; Flyway migrations; Run Journal event publishing; Docker build/push CI workflow.
 - **Next:** Kubernetes deployment (helm), multi-region event consistency patterns, anomaly detection for injury prevention signals.
-→ **[Go to Runs App](https://github.com/sathishjayapal/runs-ai-analyzer)** | **[Read the blog post](https://sathishjayapal.me/semantic-caching-running-analysis)**
- 
+
+→ **[Go to Runs AI Analyzer](https://github.com/sathishjayapal/runs-ai-analyzer)** | **[Read the blog post](https://sathishjayapal.me/semantic-caching-running-analysis)**
+
+---
+
+### MyGithubCleaner (verbose-barnacle) — **Active**
+
+A Spring Boot multi-module app that syncs, manages, and deletes GitHub repositories, integrated with EventTracker via RabbitMQ.
+
+- **Tech:** Java 24 • Spring Boot 3.5.3 • React 19 + TypeScript • RabbitMQ • Spring Cloud Config • Spring Cloud Kubernetes Discovery
+- **Focus:** GitHub API integration, repo lifecycle management, event publishing to EventTracker topology.
+- **Status:** Actively maintained; recently updated for EventTracker RabbitMQ routing key changes and Java version bump to 24.
+
+→ **[Go to MyGithubCleaner](https://github.com/sathishjayapal/verbose-barnacle)**
+
+---
+
+### DBCleaner — **New**
+
+A Spring Boot 4 / Java 25 application (scaffolded with Bootify.io) for database cleanup workflows with a Thymeleaf + Node.js dev server frontend and Spring Modulith structure.
+
+- **Tech:** Java 25 • Spring Boot 4.0.6 • Thymeleaf • Testcontainers • Spring Modulith • Docker CI
+- **Status:** Early stage; initial structure, Docker CI pipeline, and environment config in place.
+
+→ **[Go to DBCleaner](https://github.com/sathishjayapal/dbcleaner)**
+
+---
+
+### SathishLogger — **New**
+
+A parameterized, Docker-based centralized logging service deployable once and reusable across all projects. Provides REST APIs for log ingestion, correlation ID tracking, and log aggregation.
+
+- **Tech:** Java 21 • Spring Boot 3.5.9 • Docker Compose • AOP-based correlation tracking
+- **Status:** Initial commit; core service structure and Docker deployment ready.
+
+→ **[Go to SathishLogger](https://github.com/sathishjayapal/sathishlogger)**
+
 ---
  
 ### EKS Terraform Labs — **Learning Phase**
@@ -89,6 +126,7 @@ Reverse-engineering EKS clusters created with `eksctl` into clean, versioned Ter
 - **Why:** Too many teams run "cloud click-next" deployments. This is how you move from ad-hoc to reviewable infrastructure.
 - **Tech:** Terraform • AWS EKS • Kubernetes • Infrastructure as Code
 - **Status:** Early exploration; learning the mapping from eksctl-generated resources to idiomatic Terraform.
+
 → **[Read the blog post](https://sathishjayapal.me/eksctl-to-terraform-eks-mapping/)**
  
 ---
@@ -100,6 +138,7 @@ Exploring AI agents to reduce engineering toil:
 - Auto-triaging stale branches and PRs
 - Reconciling Terraform state with live Kubernetes/EKS/AKS resources
 - Drafting ADRs and changelogs from commit history
+
 → **[Browse AI experiments](https://github.com/sathishjayapal?q=ai-agent&type=source)**
  
 ---
@@ -107,7 +146,7 @@ Exploring AI agents to reduce engineering toil:
 ## 💻 Technical Comfort Zone
  
 **Languages & Frameworks**  
-Java • Spring Boot • Spring Cloud • Spring AI • REST APIs • Event-Driven Architectures
+Java (21/24/25) • Spring Boot • Spring Cloud • Spring AI • REST APIs • Event-Driven Architectures
  
 **Cloud & Infrastructure**  
 AWS (EKS, RDS, S3, ECS) • Azure • Kubernetes • Terraform • Infrastructure as Code • Spring Cloud Config
@@ -116,7 +155,7 @@ AWS (EKS, RDS, S3, ECS) • Azure • Kubernetes • Terraform • Infrastructur
 PostgreSQL • RabbitMQ/Kafka • Distributed Transactions • PGVector/Semantic Search • Real-Time Analytics • RAG Caching
  
 **Architecture Styles**  
-Microservices • Event-Driven • Domain-Driven Design • CQRS • Zero-Trust Security
+Microservices • Event-Driven • Domain-Driven Design • CQRS • Spring Modulith • Zero-Trust Security
  
 [![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white) [![Spring Boot](https://img.shields.io/badge/SpringBoot-6DB33F?style=flat-square&logo=spring-boot&logoColor=white)](https://img.shields.io/badge/SpringBoot-6DB33F?style=flat-square&logo=spring-boot&logoColor=white) [![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white) [![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat-square&logo=terraform&logoColor=white)](https://img.shields.io/badge/Terraform-7B42BC?style=flat-square&logo=terraform&logoColor=white) [![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white)](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white) [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white)](https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white) [![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=flat-square&logo=rabbitmq&logoColor=white)](https://img.shields.io/badge/RabbitMQ-FF6600?style=flat-square&logo=rabbitmq&logoColor=white)
  
@@ -124,7 +163,7 @@ Microservices • Event-Driven • Domain-Driven Design • CQRS • Zero-Trust 
  
 ## 🏃‍♂️ Beyond Code
  
-**Marathoner (Transitioning):** 9 marathon finishes; now training for **Flying Pig Half Marathon (Cincinnati, May 2026)**—injury recovery + systems-based training design. Every long run is a lesson in system design — feedback loops, resilience, constraint management, recovery.
+**Marathoner:** 9 marathon finishes including the Flying Pig Half Marathon (Cincinnati, May 2026). Now in post-race recovery and planning the next training cycle. Every long run is a lesson in system design — feedback loops, resilience, constraint management, recovery.
  
 **Thesis:** The principles that make distributed systems resilient (redundancy, graceful degradation, observability, feedback loops) are the same principles that make training cycles effective. I explore this at the intersection of both domains.
  
@@ -144,11 +183,15 @@ Microservices • Event-Driven • Domain-Driven Design • CQRS • Zero-Trust 
  
 ## 📊 Recent Activity
  
-- **EventsTracker:** Production profiles working; config server integration live; local/prod env switching via scripts
-- **Runs AI Analyzer:** EventTracker integration complete; semantic caching with PgVector stable; ECS deployment configs added; three-service integration tests passing
-- **Learning:** CKAD certification prep; Terraform EKS reverse-engineering; Spring AI + Claude API patterns
-- **Writing:** In-progress piece on RAG pattern trade-offs and multi-region event consistency
-- **Running:** Training cycle 2026 (half-marathon focus); injury recovery + systems-based periodization model
+- **EventsTracker:** Run Journal Entry management (CRUD + embedding service); responsive UI improvements; Terraform PostgreSQL Flexible Server config; Docker deploy workflow
+- **Runs AI Analyzer:** Async `AnalysisJob` entity + batch service; AI fallback (Anthropic ↔ Ollama); Flyway migrations; Docker CI active
+- **MyGithubCleaner:** Java 24 upgrade; EventTracker RabbitMQ routing key alignment; active maintenance
+- **DBCleaner:** New project — Java 25 / Spring Boot 4.0.6 / Spring Modulith structure; Docker CI
+- **SathishLogger:** New project — centralized logging service with correlation ID tracking; Docker deployment ready
+- **Config Server:** Spring Cloud 2025.0.2 upgrade
+- **Infrastructure:** ACG sandbox Terraform fixes; SSM relay config; consolidated-postgres scripts
+- **Running:** Post-Flying Pig (May 2026) recovery; planning next training cycle
+
 ---
  
 ## 📝 How to Use This Space
@@ -169,6 +212,7 @@ This is **not a portfolio of finished products**. It's a **learning laboratory i
 - Real decisions (documented in Architecture Decision Records)
 - Real friction (MapStruct compilation, reconciling Terraform state, Ollama embedding complexity)
 - Real outcomes (blog posts, working applications, operational insights)
+
 The goal is to **show how I think**, not just what I've built.
  
 ---
