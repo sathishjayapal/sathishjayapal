@@ -13,17 +13,22 @@ I design distributed systems for cloud platforms and explore how **resilience pr
 ### 📐 **Event-Driven Systems & Distributed Transactions**
  
 → Start with **[EventsTracker](https://github.com/sathishjayapal/eventstracker)**  
-A production-grade multi-service platform exploring RabbitMQ choreography, ShedLock coordination, and Kubernetes operations. Running in local & prod-ready state with Spring Boot 3.5.7, Java 21, and Spring Cloud Config integration. Recently added: **Run Journal Entry management** with CRUD operations and embedding service. Built to answer: *How do you handle distributed transactions and race conditions at scale?*
+A multi-service event ingestion platform exploring RabbitMQ choreography, ShedLock coordination, and Kubernetes operations. Self-hosted and deployed via a Portainer CI/CD pipeline, running Spring Boot 3.5.7, Java 21, and Spring Cloud Config integration. Recently added: correlation-ID propagation into the new centralized logging service. Built to answer: *How do you handle distributed transactions and race conditions at scale?*
  
-### 🏃 **Analytics for Distributed Systems (via Running Data)**
+### 🏃 **Full-Stack Systems (Backend + Frontend)**
+ 
+→ Start with **[Runs App](https://github.com/sathishjayapal/runs-app)**  
+The most complete end-to-end system in the lab: Spring Boot 4.0.1 backend + React 19/TypeScript frontend, Garmin FIT file import, Strava sync, ShedLock-scheduled jobs, RabbitMQ event publishing into the EventsTracker topology, and a full Docker Compose + Testcontainers setup. The clearest single repo to judge how I structure a production-shaped app end to end.
+ 
+### 🏃‍♂️ **Analytics for Distributed Systems (via Running Data)**
  
 → Start with **[Runs AI Analyzer](https://github.com/sathishjayapal/runs-ai-analyzer)** *(Active Development)*  
 Using semantic caching (PgVector + Claude API + Ollama embeddings) to analyze running data as a testbed for RAG patterns and real-time anomaly detection. Accepts Garmin payloads, publishes RabbitMQ events into EventTracker topology. Recent work: **async analysis job tracking** (`AnalysisJob` entity with status polling), AI fallback between Anthropic and Ollama, Flyway migrations, Docker CI. Why? Because marathons taught me that **resilience is a system property**, not a component.
  
 ### 🏗️ **Infrastructure as Code & Kubernetes Ops**
  
-→ Coming Soon: **EKS Terraform Labs** *(Learning Phase)*  
-Reverse-engineering cloud-click clusters into versioned, reviewed, reproducible infrastructure. Learning to go from "eksctl create cluster" to "infrastructure as a git-reviewed system."
+→ Start with **[iAC-NikeRuns](https://github.com/sathishjayapal/iAC-NikeRuns)**  
+Dual-cloud Terraform codebase provisioning the same microservices ecosystem on both Azure and AWS ACG sandbox — composable modules, a code-status diagram distinguishing active/standalone/legacy paths, and working around real sandbox restrictions (e.g. an SCP blocking `rds:CreateDBInstance`). Learning to go from "eksctl create cluster" to "infrastructure as a git-reviewed system."
  
 ### 🤖 **Agentic AI for Engineering Workflows**
  
@@ -55,19 +60,33 @@ Using PGVector and Claude embeddings to avoid re-analyzing past running data. RA
  
 ## 🏗️ What I'm Building Now
  
-### EventsTracker — **Production-Ready + Active Development**
+### EventsTracker — **Self-Hosted, Actively Deployed**
  
-A multi-service event ingestion platform with config server integration, production profiles, and Kubernetes-native design.
+A multi-service event ingestion platform with config server integration, deploy profiles, and Kubernetes-native design.
  
 - **Why:** To understand how production systems handle distributed transactions, race conditions, and resilience at small scale before enterprise scale.
 - **Tech:** Java 21 • Spring Boot 3.5.7 • Spring Cloud Config • RabbitMQ • PostgreSQL/Flyway • Kubernetes • Maven
-- **Focus:** Event-driven choreography, ShedLock coordination, zero-trust microservice security, production env support.
-- **Status:** Core event ingestion stable and production-ready; config-server integration tested; running locally with spring profiles (local/prod).
-- **Recent:** Run Journal Entry management (CRUD + embedding service); responsive table UI improvements; Terraform config for PostgreSQL Flexible Server; Docker deployment workflow enhancements.
+- **Focus:** Event-driven choreography, ShedLock coordination, zero-trust microservice security, self-hosted deploy pipeline.
+- **Status:** Core event ingestion stable; config-server integration tested; deployed via a GitHub Actions → Portainer pipeline to a home-lab VM (not a commercial production environment); runs locally with spring profiles (local/prod).
+- **Recent:** Correlation-ID filter wired into the new centralized logging service; `dev-up.sh` consolidated onto shared Postgres/RabbitMQ infra; Run Journal Entry management (CRUD + embedding service).
 - **Next:** Zero-downtime deployments, comprehensive observability (metrics/tracing/logging), Kubernetes Helm charts.
 
 → **[Go to EventsTracker](https://github.com/sathishjayapal/eventstracker)** | **[Read the blog post](https://sathishjayapal.me/tackling-distributed-transactions)**
  
+---
+ 
+### Runs App — **Most Complete End-to-End System**
+ 
+The flagship full-stack app in the lab: running-activity tracker with Garmin FIT import, Strava sync, and event publishing into the EventsTracker topology.
+ 
+- **Why:** The clearest single repo to see backend, frontend, scheduling, and messaging working together as one system.
+- **Tech:** Java 21 • Spring Boot 4.0.1 • React 19 + TypeScript • Tailwind CSS • RabbitMQ • PostgreSQL/Flyway • Testcontainers
+- **Focus:** Garmin FIT SDK ingestion, ShedLock-scheduled import jobs, Spring Security (RBAC), RabbitMQ event publishing.
+- **Status:** Actively developed; backend (:8080) and React dev server (:3000) run side by side; CI builds Docker images.
+- **Recent:** Docker/Testcontainers version bumps; PostgreSQL env-var handling hardened; ACG/production `.env` support added to `dev-up.sh`.
+
+→ **[Go to Runs App](https://github.com/sathishjayapal/runs-app)**
+
 ---
  
 ### Runs AI Analyzer — **Active Development**
@@ -97,37 +116,37 @@ A Spring Boot multi-module app that syncs, manages, and deletes GitHub repositor
 
 ---
 
-### DBCleaner — **New**
+### DBCleaner — **Active**
 
 A Spring Boot 4 / Java 25 application (scaffolded with Bootify.io) for database cleanup workflows with a Thymeleaf + Node.js dev server frontend and Spring Modulith structure.
 
 - **Tech:** Java 25 • Spring Boot 4.0.6 • Thymeleaf • Testcontainers • Spring Modulith • Docker CI
-- **Status:** Early stage; initial structure, Docker CI pipeline, and environment config in place.
+- **Status:** Past initial scaffold; CI/CD pipeline hardened (Docker Hub tagging, image verification, smoke tests), HikariCP tuning for its external datasource, home page showing live project statistics.
 
 → **[Go to DBCleaner](https://github.com/sathishjayapal/dbcleaner)**
 
 ---
 
-### SathishLogger — **New**
+### SathishLogger (sathish-projects-logger) — **Active**
 
 A parameterized, Docker-based centralized logging service deployable once and reusable across all projects. Provides REST APIs for log ingestion, correlation ID tracking, and log aggregation.
 
-- **Tech:** Java 21 • Spring Boot 3.5.9 • Docker Compose • AOP-based correlation tracking
-- **Status:** Initial commit; core service structure and Docker deployment ready.
+- **Tech:** Java 21 • Spring Boot 3.5.9 • Docker Compose • AOP-based correlation tracking • Flyway
+- **Status:** Repo renamed to `sathish-projects-logger`; Flyway migration for the `log_entries` schema landed; CI/CD pipeline rebuilt with dynamic image naming, JAR verification, and smoke tests; first consumer (EventsTracker) now sends correlation IDs to it.
 
-→ **[Go to SathishLogger](https://github.com/sathishjayapal/sathishlogger)**
+→ **[Go to SathishLogger](https://github.com/sathishjayapal/sathish-projects-logger)**
 
 ---
  
-### EKS Terraform Labs — **Learning Phase**
+### iAC-NikeRuns — **Dual-Cloud Terraform, Active**
  
-Reverse-engineering EKS clusters created with `eksctl` into clean, versioned Terraform modules.
+Reverse-engineering cloud-click infrastructure into clean, versioned Terraform modules across Azure and AWS.
  
 - **Why:** Too many teams run "cloud click-next" deployments. This is how you move from ad-hoc to reviewable infrastructure.
-- **Tech:** Terraform • AWS EKS • Kubernetes • Infrastructure as Code
-- **Status:** Early exploration; learning the mapping from eksctl-generated resources to idiomatic Terraform.
+- **Tech:** Terraform • AWS (EC2, planned EKS/MSK/Aurora) • Azure Container Apps • Kubernetes • Infrastructure as Code
+- **Status:** Azure stack composed as one root module; AWS modules applied independently under `aws-modules/`, with a maintained code-status diagram (active/standalone/legacy) since the repo carries multiple approaches to the same ACG sandbox SCP restrictions. Recently extended with database resources for the my-github-cleaner and dbcleaner projects.
 
-→ **[Read the blog post](https://sathishjayapal.me/eksctl-to-terraform-eks-mapping/)**
+→ **[Go to iAC-NikeRuns](https://github.com/sathishjayapal/iAC-NikeRuns)** | **[Read the blog post](https://sathishjayapal.me/eksctl-to-terraform-eks-mapping/)**
  
 ---
  
@@ -183,13 +202,14 @@ Microservices • Event-Driven • Domain-Driven Design • CQRS • Spring Modu
  
 ## 📊 Recent Activity
  
-- **EventsTracker:** Run Journal Entry management (CRUD + embedding service); responsive UI improvements; Terraform PostgreSQL Flexible Server config; Docker deploy workflow
+- **EventsTracker:** Correlation-ID filter feeding the new logging service; deploy-to-Portainer workflow tuned; consolidated onto shared Postgres/RabbitMQ dev infra
+- **Runs App:** Docker/Testcontainers hardening; ACG + production `.env` support in `dev-up.sh`; Axios request/response handling enhanced
+- **SathishLogger:** Renamed to `sathish-projects-logger`; Flyway migration for `log_entries`; CI/CD pipeline rebuilt with JAR verification and smoke tests
+- **DBCleaner:** CI/CD hardened (dynamic image naming, Docker Hub tagging); HikariCP tuning; home page now shows live project stats
 - **Runs AI Analyzer:** Async `AnalysisJob` entity + batch service; AI fallback (Anthropic ↔ Ollama); Flyway migrations; Docker CI active
-- **MyGithubCleaner:** Java 24 upgrade; EventTracker RabbitMQ routing key alignment; active maintenance
-- **DBCleaner:** New project — Java 25 / Spring Boot 4.0.6 / Spring Modulith structure; Docker CI
-- **SathishLogger:** New project — centralized logging service with correlation ID tracking; Docker deployment ready
-- **Config Server:** Spring Cloud 2025.0.2 upgrade
-- **Infrastructure:** ACG sandbox Terraform fixes; SSM relay config; consolidated-postgres scripts
+- **MyGithubCleaner:** Java 24 upgrade; EventTracker RabbitMQ routing key alignment; env file consolidation
+- **iAC-NikeRuns:** Terraform database resources added for my-github-cleaner and dbcleaner
+- **Infrastructure:** consolidated-postgres dev-up scripts extended across projects; ACG sandbox Terraform fixes
 - **Running:** Post-Flying Pig (May 2026) recovery; planning next training cycle
 
 ---
