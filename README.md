@@ -1,197 +1,80 @@
-# Sathish Jayapal — Systems, Resilience & Learning in Public
+# Sathish Jayapal
 
-**Cloud & Enterprise Architecture | Distributed Systems | Platform Engineering | Applied AI | Marathon Runner**
+**Enterprise & Cloud Architect | Distributed Systems | Platform Engineering | Applied AI**
 
-I build systems to understand them.
+I connect architecture decisions to working software.
 
-My personal projects are a laboratory for exploring the problems that show up in real distributed systems: **retries, event consistency, configuration drift, observability, CI/CD, infrastructure automation, deployment portability, and AI-assisted analysis.**
+My work in enterprise and cloud architecture shapes the questions I explore here: how services behave when dependencies fail, how data stays consistent across boundaries, how platforms reduce operational friction, and how teams understand the systems they run.
 
-The running domain gives me real data and real failure modes. The engineering is the point.
+These repositories are my personal engineering lab. I build, deploy, and operate applications to make those questions concrete—and write about the decisions, tradeoffs, and lessons along the way.
 
----
+## Start here
 
-## 🔭 What I'm Building
+| Project | What it demonstrates |
+| --- | --- |
+| **[Runs App](https://github.com/sathishjayapal/runs-app)** | My flagship application: Garmin and Strava data, a Java/Spring Boot backend, React frontend, PostgreSQL, messaging, and automated delivery. |
+| **[EventsTracker](https://github.com/sathishjayapal/eventstracker)** | Event ingestion and RabbitMQ choreography, with experiments in distributed coordination and service operations. |
+| **[Runs AI Analyzer](https://github.com/sathishjayapal/runs-ai-analyzer)** | Applied AI over running data using Spring AI, PGVector, embeddings, semantic caching, and asynchronous analysis. |
+| **[consolidated-postgres](https://github.com/sathishjayapal/consolidated-postgres)** | Shared infrastructure and deployment configuration for the lab: PostgreSQL, RabbitMQ, environment mappings, and startup verification. |
+| **[iAC-NikeRuns](https://github.com/sathishjayapal/iAC-NikeRuns)** | Infrastructure as code across AWS and Azure, including Terraform experiments and the constraints of temporary cloud environments. |
 
-Rather than isolated demo applications, these projects increasingly operate as one small distributed system.
+Supporting service: **[SathishLogger](https://github.com/sathishjayapal/sathish-projects-logger)**—centralized application logging and correlation IDs.
 
-| Project                                                                              | What I'm exploring                                                                                                                                           |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **[Runs App](https://github.com/sathishjayapal/runs-app)**                           | My flagship full-stack application. Garmin + Strava data, Spring Boot, React, PostgreSQL, RabbitMQ, scheduling, security and CI/CD.                          |
-| **[Runs AI Analyzer](https://github.com/sathishjayapal/runs-ai-analyzer)**           | AI analysis over running data using Spring AI, embeddings, PGVector, semantic caching and asynchronous processing.                                           |
-| **[EventsTracker](https://github.com/sathishjayapal/eventstracker)**                 | Event ingestion, RabbitMQ choreography, distributed coordination and operational patterns.                                                                   |
-| **[consolidated-postgres](https://github.com/sathishjayapal/consolidated-postgres)** | The orchestration layer for the ecosystem: databases, RabbitMQ, environment configuration and deployments across local, VM and temporary cloud environments. |
-| **[iAC-NikeRuns](https://github.com/sathishjayapal/iAC-NikeRuns)**                   | Terraform experiments across AWS and Azure, including EKS Fargate, PostgreSQL/pgvector and adapting architecture to real sandbox constraints.                |
+## Architecture questions I explore
 
-Supporting services include **[SathishLogger](https://github.com/sathishjayapal/sathish-projects-logger)** for centralized logging and correlation IDs.
+- **Resilience:** What happens when a dependency is unavailable, a request is retried, or a message arrives twice?
+- **Consistency:** Where should a transaction boundary end, and how should services coordinate beyond it?
+- **Platform engineering:** Which capabilities should services share, and where does centralization introduce coupling?
+- **Observability:** Can I follow a request across services and explain why it failed?
+- **Deployment portability:** What changes when a workload moves between a laptop, a server, and a cloud environment?
+- **Applied AI:** When does retrieval or semantic caching help, and how should a system handle stale context?
 
----
+## One lab, connected services
 
-## 🧪 The Interesting Part Isn't the App
+The projects increasingly form one small distributed system. This diagram is a simplified view of the relationships I explore:
 
-A running tracker by itself isn't particularly interesting.
-
-What interests me is what happens when it becomes a system:
-
-```text
-Garmin / Strava
-       │
-       ▼
-   Runs App
-       │
-       ├──── events ────► RabbitMQ ────► EventsTracker
-       │
-       ├──── analysis ──► Runs AI Analyzer ──► PGVector / AI
-       │
-       └──── logs ──────► SathishLogger
-
-            │
-            ▼
- Shared PostgreSQL + configuration
-            │
-            ▼
- Docker / Portainer / Cloud Sandboxes
+```mermaid
+flowchart TD
+    Sources["Garmin and Strava data"] --> App["Runs App"]
+    App --> MQ["RabbitMQ"]
+    MQ --> Events["EventsTracker"]
+    App --> AI["Runs AI Analyzer"]
+    AI --> Vector["PGVector and AI providers"]
+    App --> Logs["SathishLogger"]
 ```
 
-That creates opportunities to experiment with the same questions that matter in much larger platforms:
+The lab also uses shared PostgreSQL infrastructure and Docker/Portainer deployments. It gives me a place to work through configuration drift, persistent data, startup dependencies, container portability, and delivery automation.
 
-**What happens when a message is delivered twice?**
-**How do services share configuration without configuration drift?**
-**How much infrastructure should be centralized?**
-**How do you trace one request across services?**
-**Can the same workload move from a laptop to a VM to the cloud?**
-**Where should AI be used — and where shouldn't it?**
+These are personal projects at lab scale. I document the operating constraints and unfinished work alongside the implementation.
 
----
+## Tools I work with
 
-## 🚀 What Changed Recently
+| Area | Technologies |
+| --- | --- |
+| Application development | Java, Spring Boot, React, TypeScript, REST APIs |
+| Data and messaging | PostgreSQL, RabbitMQ, Flyway, PGVector |
+| Cloud and infrastructure | AWS, Azure, Terraform, Docker, Kubernetes, Portainer |
+| Software delivery | GitHub Actions, Testcontainers, automated testing, static analysis, container scanning |
+| Applied AI | Spring AI, Anthropic, Ollama, embeddings, semantic caching |
 
-The last few months have been less about adding another application and more about making the ecosystem **operable**.
+## Why running?
 
-### CI/CD became a pipeline, not a build script
+I'm a marathon runner, and running gives this lab a domain I care about and continuously generate data for.
 
-Runs App now goes through a more complete software-delivery path:
+Imports fail. Activities get duplicated. Devices disagree. Training context changes. Those practical problems give me reasons to explore retries, data quality, asynchronous processing, and the limits of AI analysis.
 
-```text
-git push
-   ↓
-TEST
-   ↓
-STATIC ANALYSIS
-   ↓
-BUILD IMAGE
-   ↓
-VULNERABILITY SCAN
-   ↓
-PUBLISH
-```
+Running is the domain; architecture and engineering are the recurring themes.
 
-I've been working through dependency security, automated scanning, Docker image construction, smoke testing and making failures visible instead of simply producing an image.
+## Writing and connection
 
-### The home lab became a deployment target
+I write about the point where architecture diagrams meet implementation and operation:
 
-I moved several services into a Docker/Portainer environment rather than keeping every experiment tied to a cloud account.
+- **[Personal blog — sathishjayapal.com](https://sathishjayapal.com)**
+- **[Technical articles on Medium — @dotsky](https://dotsky.medium.com)**
 
-That introduced useful problems of its own:
+For a project question or collaboration idea, open an issue in the relevant repository.
 
-* amd64 vs arm64 container images
-* persistent database volumes
-* environment and secret management
-* service startup ordering
-* shared RabbitMQ/PostgreSQL infrastructure
-* deployment automation
-* moving workloads between local, VM and cloud environments
-
-The objective isn't to pretend a home lab is production.
-
-It's to make the applications **production-shaped enough to learn from operating them**.
-
-### Shared infrastructure exposed configuration drift
-
-Once several Spring Boot projects shared PostgreSQL and messaging infrastructure, inconsistencies that were invisible inside individual repositories became obvious.
-
-That led to `consolidated-postgres`: one place to manage project databases, RabbitMQ, environment mappings, startup verification and temporary cloud environments.
-
-### Observability became part of the architecture
-
-I also introduced a reusable centralized logging service and started propagating correlation IDs between applications.
-
-The next step is completing the observability triangle:
-
-**logs → metrics → distributed traces**
-
----
-
-## 🧠 Architecture Topics I'm Exploring
-
-My projects tend to orbit a few recurring questions:
-
-**Distributed systems**
-Event-driven architecture • RabbitMQ • retries • idempotency • distributed coordination • eventual consistency
-
-**Platform & cloud**
-Docker • Kubernetes • Portainer • AWS • Azure • Terraform • deployment portability
-
-**Software delivery**
-GitHub Actions • automated testing • static analysis • container scanning • dependency security • CI/CD
-
-**Data & AI**
-PostgreSQL • PGVector • RAG • semantic caching • embeddings • Spring AI • Anthropic • Ollama
-
-**Application architecture**
-Java • Spring Boot • React • REST APIs • DDD • CQRS • Flyway • Testcontainers
-
----
-
-## ✍️ Learning in Public
-
-I write about the point where diagrams meet actual implementation.
-
-Recent themes include:
-
-**PostgreSQL configuration drift across multiple Spring Boot projects**
-What happens when several independently-developed services slowly develop different assumptions about the same infrastructure.
-
-**Docker + Portainer for a personal server**
-Moving a collection of Spring services from cloud-hosted experiments onto portable Docker infrastructure.
-
-**Retry safety and exactly-once thinking**
-Exploring ideas such as RIFL and applying distributed-systems research to a real endpoint rather than only reading the paper.
-
-**AI + running data**
-Using PGVector, embeddings and LLMs while dealing with temporal context, stale information and the limits of AI recommendations.
-
-📝 **Blog:** [sathishjayapal.com](https://sathishjayapal.com)
-🔗 **Medium:** [@dotsky](https://dotsky.medium.com)
-
----
-
-## 🏃 Why Running?
-
-Running gives me something most software demos don't have:
-
-**A domain I actually care about and continuously generate data for.**
-
-Training data changes over time. Context matters. Bad recommendations have consequences. Imports fail. Data gets duplicated. Devices disagree.
-
-That makes it a surprisingly good laboratory for thinking about software architecture.
-
-I recently came across a principle in Xbox's leadership principles that stayed with me:
-
-> **Clarity is kindness.**
-
-I like the simplicity of it.
-
-Whether I'm writing code, documenting an architecture decision, designing an interface between services, or explaining why something failed, I want clarity to be part of how I work here.
-
-Build things. Understand them. Explain them clearly.
-
----
-
-## 📍 About Me
-
-I'm based in Wisconsin and work in enterprise/cloud architecture. GitHub is where I keep the hands-on side of that learning: writing code, breaking things, operating them, documenting what went wrong and turning the useful lessons into architecture thinking. I'm less interested in presenting these repositories as polished products than in showing 
-**how my thinking changes as the systems become more real**.
+Based in **Wisconsin, USA**.
 
 **Build → operate → observe → learn → redesign.**
 
-That's the laboratory.
